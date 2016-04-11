@@ -41,6 +41,10 @@ if ( ! class_exists('CT_Option_Panel') ) {
                 self::$instance->includes();
                 self::$instance->hooks();
                 
+                if(class_exists('CTFOP_Addon')){
+                    $opt_addon = new CTFOP_Addon();
+                }
+                
                 do_action( 'ctf_add_option' );
 
             }
@@ -77,15 +81,58 @@ function test_opts()
         $args = array(
             'page_title' => 'Page Title',
             'menu_title' => 'Menu Title',
-            'menu_slug' => 'ctfop_main_menu'
+            'menu_slug' => 'ctfop_main_menu',
+            'opt_name' => 'ctf_tst'
             );
             
         $options = array();
         
         $options[] = array(
-            'title' => 'hello'
+            'id' => 'hello',
+            'title' => 'Hello',
+            'fields' => array(
+                array(
+                    'id' => 'ctfif_tst_text',
+                    'label'    => __( 'Text Input', 'mytheme' ),
+                    'subtitle'    => __( 'Lorem ipsum dolor sit amet', 'mytheme' ),
+                    'type'     => 'text',
+                    'default' => 'Test Text new',
+                ),
+                array(
+                    'id' => 'ctfif_tst_email',
+                    'label'    => __( 'Email Input', 'mytheme' ),
+                    'subtitle'    => __( 'Lorem ipsum dolor sit amet', 'mytheme' ),
+                    'type'     => 'email',
+                    'default' => 'example@gmail.com',
+                ),
+            )
+        );
+        
+        $options[] = array(
+            'id' => 'world',
+            'title' => 'World',
+            'fields' => array(
+                array(
+                    'id' => 'ctfif_tst_text2',
+                    'label'    => __( 'Text Input 2', 'mytheme' ),
+                    'subtitle'    => __( 'Lorem ipsum dolor sit amet', 'mytheme' ),
+                    'type'     => 'text',
+                    'default' => 'Test Text',
+                ),
+                array(
+                    'id' => 'ctfif_tst_email2',
+                    'label'    => __( 'Email Input 2', 'mytheme' ),
+                    'subtitle'    => __( 'Lorem ipsum dolor sit amet', 'mytheme' ),
+                    'type'     => 'email',
+                    'default' => 'example@gmail.com',
+                ),
+            )
         );
         $menu = new CT_Opt_Panel($args, $options);
+        
+        /*$menu->enqueue_page_js(function (){
+            wp_enqueue_script( 'ctf-options-panel', CTOP_URL . 'assets/js/ct-option-panel.js', array('jquery', 'underscore', 'ctf-core-script'), '1.0', true );
+        });*/
         
         $menu->run();
         

@@ -1,0 +1,7 @@
+.ctfop-tab-panel{
+    display: none;
+}
+
+.ctfop-tab-panel.active{
+    display: block;
+}

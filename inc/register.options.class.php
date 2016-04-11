@@ -10,6 +10,8 @@ class CT_Opt_Panel{
     private $css_cb_function = '';
     
     private $options = '';
+    
+    private $default_values = '';
 	
     function __construct( $args = array(), $options = array() )
 	{
@@ -28,6 +30,8 @@ class CT_Opt_Panel{
 		$this->args = $args;
 		
 		$this->options = $options;
+		
+		$this->default_values = $this->set_default_values();
 		
 		
 	}
@@ -59,25 +63,50 @@ class CT_Opt_Panel{
 	}
 	
 	public function option_panel_callback (){
+		$curent_saved_value = get_option($this->args['opt_name']);
+		
+		if(!$curent_saved_value){
+			update_option($this->args['opt_name'], $this->default_values);
+			
+			$curent_saved_value = get_option($this->args['opt_name']);
+		}
 		?>
 		<div class="wrap">
 			<h1><?php echo esc_html($this->args['page_title']); ?></h1>
-			<div class="ctfop-wrap">
+			<div class="ctfop-wrap ctf-fc">
 				<div class="ctfop-tabs">
 					<div class="ctfop-tabs-nav">
 						<ul></ul>
 					</div>
 					<div class="ctfop-tab-panels">
-						
+						<form id="ctfop-form">
+						</form>
 					</div>
 				</div>
 			</div>
 		</div>
 		<script type="text/javascript">
-			window.ctfopt = <?php echo wp_json_encode($this->options); ?>;
+			window.ctfopts = <?php echo wp_json_encode($this->options); ?>;
+			
+			window.ctfopts_value = <?php echo wp_json_encode($curent_saved_value); ?>
 		</script>
 		<?php
 		
+	}
+	
+	private function set_default_values(){
+		$all_flds_default = array();
+		if(!empty($this->options)){
+			foreach ($this->options as $panel) {
+				if(isset($panel['fields']) && !empty($panel['fields'])){
+					foreach ($panel['fields'] as $field) {
+						$all_flds_default[$field['id']] = $field['default'];
+					}
+				}
+			}
+		}
+		
+		return $all_flds_default;
 	}
 	
 	public function enqueue_page_js( $callback_fun ){
