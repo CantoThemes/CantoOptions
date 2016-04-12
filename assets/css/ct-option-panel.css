@@ -1,7 +1,52 @@
 .ctfop-tab-panel{
     display: none;
+    padding: 30px 62px;
+    border-left: 1px solid #f2f2f2;
 }
 
 .ctfop-tab-panel.active{
     display: block;
+}
+
+.ctfop-tabs{
+    background: #FAFAFA;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+    border: 1px solid #E6E6E6;
+}
+
+.ctfop-tabs .ctfop-tabs-nav{
+    width: 260px;
+    float: left;
+    position: relative;
+    z-index: 9;
+}
+.ctfop-tabs .ctfop-tabs-nav ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ctfop-tabs .ctfop-tabs-nav ul li{
+    margin: 0;
+}
+
+.ctfop-tabs .ctfop-tabs-nav > ul > li > a{
+    display: block;
+    text-decoration: none;
+    padding: 15px;
+    border-bottom: 1px solid #f2f2f2;
+    outline: none !important;
+    box-shadow: none;
+}
+
+.ctfop-tabs .ctfop-tabs-nav > ul > li > a.active{
+    background-color: #fff;
+    box-shadow: 1px 0 #fff, inset 3px 0 #06B3E6;
+}
+
+.ctfop-tabs .ctfop-tab-panels{
+    width: 100%;
+    position: relative;
+    margin-left: 260px;
+    background-color: #fff;
 }

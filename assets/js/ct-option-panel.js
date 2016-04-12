@@ -80,6 +80,10 @@
         
         $('.ctfop-tab-panel.active').removeClass('active');
         
+        $('.ctfop-tabs .ctfop-tabs-nav a.active').removeClass('active');
+        
+        $(this).addClass('active');
+        
         $($(this).attr('href')).addClass('active');
     });
 })(jQuery);

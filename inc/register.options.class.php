@@ -74,7 +74,7 @@ class CT_Opt_Panel{
 		<div class="wrap">
 			<h1><?php echo esc_html($this->args['page_title']); ?></h1>
 			<div class="ctfop-wrap ctf-fc">
-				<div class="ctfop-tabs">
+				<div class="ctfop-tabs clearfix">
 					<div class="ctfop-tabs-nav">
 						<ul></ul>
 					</div>
