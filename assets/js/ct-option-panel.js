@@ -3,12 +3,14 @@
     CTF_Core.CTF_Option_Panel = CTF_Core.Opts.extend({
         initialize: function ( args ){
 	    	this.inputArgs = args.fields;
-	    	this.container = args.id;
+	    	
 	   // 	this.containerObj = $('#ctf-metabox-'+container);
 	    	
 	    	var panelContainer = $('#ctfop-form'),
 	    	    tabNav = $('.ctfop-tabs-nav > ul'),
 	    	    panelObj = $('<div class="ctfop-tab-panel" id="'+args.id+'"></div>');
+	    	    
+	        this.container = panelContainer.data('opt_id');
 	    	    
 	        tabNav.append('<li><a href="#'+args.id+'">'+args.title+'</a></li>');
 	    	

@@ -37,6 +37,8 @@
     border-bottom: 1px solid #f2f2f2;
     outline: none !important;
     box-shadow: none;
+    font-family: 'Roboto', sans-serif;
+    color: #000;
 }
 
 .ctfop-tabs .ctfop-tabs-nav > ul > li > a.active{
@@ -45,8 +47,18 @@
 }
 
 .ctfop-tabs .ctfop-tab-panels{
-    width: 100%;
     position: relative;
     margin-left: 260px;
     background-color: #fff;
+}
+.ctfop-page-title{
+    background-color: #fafafa;
+    padding: 30px !important;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    border-bottom: 1px solid #f2f2f2;
+}
+.ctfop-btn-container{
+    background-color: #EAEAEA;
+    padding: 10px;
 }

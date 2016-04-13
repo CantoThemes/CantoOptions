@@ -65,6 +65,10 @@ class CT_Opt_Panel{
 	public function option_panel_callback (){
 		$curent_saved_value = get_option($this->args['opt_name']);
 		
+		if(isset($_POST[$this->args['opt_name']])){
+			var_dump($_POST[$this->args['opt_name']]);
+		}
+		
 		if(!$curent_saved_value){
 			update_option($this->args['opt_name'], $this->default_values);
 			
@@ -72,16 +76,23 @@ class CT_Opt_Panel{
 		}
 		?>
 		<div class="wrap">
-			<h1><?php echo esc_html($this->args['page_title']); ?></h1>
+			
 			<div class="ctfop-wrap ctf-fc">
 				<div class="ctfop-tabs clearfix">
-					<div class="ctfop-tabs-nav">
-						<ul></ul>
-					</div>
-					<div class="ctfop-tab-panels">
-						<form id="ctfop-form">
-						</form>
-					</div>
+					<form id="ctfop-main-form" method="post">
+						<h1 class="ctfop-page-title"><?php echo esc_html($this->args['page_title']); ?></h1>
+						<div class="ctfop-tabs-nav">
+							<ul></ul>
+						</div>
+						<div class="ctfop-tab-panels">
+							<div data-opt_id="<?php echo esc_attr($this->args['opt_name']); ?>" id="ctfop-form">
+							</div>
+							
+						</div>
+						<div class="ctfop-btn-container">
+							<input type="submit" value="Save" class="ctf-btn"/>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>

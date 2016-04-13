@@ -99,6 +99,13 @@ function test_opts()
                     'default' => 'Test Text new',
                 ),
                 array(
+                    'id' => 'ctfif_tst_color',
+                    'label'    => __( 'Color Input', 'mytheme' ),
+                    'subtitle'    => __( 'Lorem ipsum dolor sit amet', 'mytheme' ),
+                    'type'     => 'color',
+                    'default' => '#fff',
+                ),
+                array(
                     'id' => 'ctfif_tst_email',
                     'label'    => __( 'Email Input', 'mytheme' ),
                     'subtitle'    => __( 'Lorem ipsum dolor sit amet', 'mytheme' ),
