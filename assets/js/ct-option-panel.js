@@ -74,7 +74,10 @@
 (function( $ ){
     
     if($('.ctfop-tab-panel.active').length == 0){
-        $('.ctfop-tab-panel').first().addClass('active');
+        var firstPanel = $('.ctfop-tab-panel').first();
+        firstPanel.addClass('active');
+
+        $('.ctfop-tabs .ctfop-tabs-nav a[href="#'+firstPanel.attr('id')+'"]').addClass('active');
     }
     
     $('.ctfop-tabs .ctfop-tabs-nav').on('click', 'a', function(e){

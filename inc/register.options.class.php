@@ -1,5 +1,8 @@
 <?php
 
+/**
+ *
+ */
 class CT_Opt_Panel{
     private $args = array();
     
@@ -63,11 +66,14 @@ class CT_Opt_Panel{
 	}
 	
 	public function option_panel_callback (){
+
+		if(isset($_POST[$this->args['opt_name']])){
+			update_option( $this->args['opt_name'], $_POST[$this->args['opt_name']] );
+		}
+
 		$curent_saved_value = get_option($this->args['opt_name']);
 		
-		if(isset($_POST[$this->args['opt_name']])){
-			var_dump($_POST[$this->args['opt_name']]);
-		}
+		
 		
 		if(!$curent_saved_value){
 			update_option($this->args['opt_name'], $this->default_values);
