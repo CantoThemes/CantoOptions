@@ -96,7 +96,7 @@ class CT_Opt_Panel{
 							
 						</div>
 						<div class="ctfop-btn-container">
-							<input type="submit" value="Save" class="ctf-btn"/>
+							<button type="submit" class="ctf-btn"><i class="fa fa-floppy-o"></i> Save Changes</button>
 						</div>
 					</form>
 				</div>
